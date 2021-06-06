@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paavana Digvijaya Seva Samithi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <link href="./assets/css/product.css" rel="stylesheet">
+</head>
+<body>
+  <body class="text-center">
+
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand">ಪಾವನ ದಿಗ್ವಿಜಯ ಸೇವ ಸಮಿತಿ</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link active" href="japaprocedure.html">Japa Procedure</a>
+            <!-- <a class="nav-link" href="#">Contact</a> -->
+          </nav>
+        </div>
+      </header>
+
+      <div class="mantradiv">
+        <h1>Total Japa Counts</h1>
+        <p><h2 id="japaCountTotal"></h2></p>
+        <p><h4>As of Date and Time</h4></p>
+        <p><h4 id="currentDateTime"></h4></p>
+      </div>
+
+      <main role="main" class="inner cover">
+        <h1 class="cover-heading"></h1>
+        <p class="lead"></p>
+        <p class="lead">
+            
+        </p>
+       
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>॥ ಪೂಜ್ಯಾಯ ರಾಘವೇಂದ್ರಾಯ ಸತ್ಯ ಧರ್ಮ ರತಾಯಚ ॥ ॥ ಭಜತಾಂ ಕಲ್ಪವೃಕ್ಷಾಯ ನಮತಾಂ ಕಾಮಧೇನುವೇ ॥</p>
+          <p>Developed by Supravis Technologies Pvt Ltd. </p>
+          <!-- <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>. -->
+        </div>
+      </footer>
+    </div>
+
+   
+  
+  
+      <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="./assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+      <script src="./assets/js/vendor/popper.min.js"></script>
+      <script src="./assets/js/vendor/holder.min.js"></script>
+      <script>
+        Holder.addTheme('thumb', {
+          bg: '#55595c',
+          fg: '#eceeef',
+          text: 'Thumbnail'
+        });
+      </script>
+       <!-- The core Firebase JS SDK is always required and must be listed first -->
+       <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-database.js"></script>
+ 
+       <!-- TODO: Add SDKs for Firebase products that you want to use
+           https://firebase.google.com/docs/web/setup#available-libraries -->
+ 
+       <script>
+         // Your web app's Firebase configuration
+         var firebaseConfig = {
+           apiKey: "AIzaSyCYEFOC3NGpfyk8POpDvi01YCZf-ww2L-k",
+           authDomain: "dgss-92c45.firebaseapp.com",
+           projectId: "dgss-92c45",
+           storageBucket: "dgss-92c45.appspot.com",
+           messagingSenderId: "114501313070",
+           databaseURL: "https://dgss-92c45-default-rtdb.firebaseio.com",
+           appId: "1:114501313070:web:6b12375ce944d91096b5bf"
+         };
+         // Initialize Firebase
+         firebase.initializeApp(firebaseConfig);
+       </script>
+      <script src="./assets/js/custom.js"></script>
+      <script>
+          getAllJapaData();
+      </script>
+</body>
+</html>
