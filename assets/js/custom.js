@@ -64,7 +64,66 @@ async   function getAllJapaData() {
     var newDate = new Date();
     
     document.getElementById('currentDateTime').innerHTML = new Date();
+
+    const snapshot = await dbRef.once('child_added');
+    const value = snapshot.val();
+    var listOfMobileNos = [];
     
+    for( var key in value ) {
+        var japaDataJson = value[key];
+        var currentKey = japaDataJson.mobileno;
+        if(!listOfMobileNos.indexOf(currentKey) >= 0)
+            listOfMobileNos.push(currentKey);
+    }
+
+    //Make mobile numbers unique
+    var uniqueMobileNos = [];
+    for(var i in listOfMobileNos){
+        if(uniqueMobileNos.indexOf(listOfMobileNos[i]) === -1){
+            uniqueMobileNos.push(listOfMobileNos[i]);
+        }
+    }
+
+    var finalJapaDataByUser = [];
+
+    for(var i=0; i<uniqueMobileNos.length; i++) {
+        dbRef.child('userjapacount').orderByChild('mobileno').equalTo(uniqueMobileNos[i]).once("value", function(snapshot) {
+            var userData = snapshot.val();
+            var finalJapaDataUserJson = {};
+            var japaC = Number(0);
+            for( var key in userData) {
+                var userDataJson = userData[key];
+                finalJapaDataUserJson = {};
+                japaC += parseInt(userDataJson.japacount);
+                
+                finalJapaDataUserJson["name"] = userDataJson.name;
+                finalJapaDataUserJson["mobileno"] = userDataJson.mobileno;
+            }
+            finalJapaDataUserJson["japacount"] = japaC;
+            
+            finalJapaDataByUser.push(finalJapaDataUserJson);
+            
+        });
+    }
+
+    var userJapaList = document.getElementById('usersJapaList');
+    
+    for(var i=0; i<finalJapaDataByUser.length; i++) {
+        var finalJapa = finalJapaDataByUser[i];
+        var row = userJapaList.insertRow(-1);
+
+        var nameCell = row.insertCell(0);
+        nameCell.innerHTML = finalJapa["name"];
+
+        var mobileNoCell = row.insertCell(1);
+        mobileNoCell.innerHTML = finalJapa["mobileno"];
+
+        var japaCountCell = row.insertCell(2);
+        japaCountCell.innerHTML = finalJapa["japacount"];
+    }
+
+
+    console.log(finalJapaDataByUser);
     // const snapshot = await dbRef.once('child_added');
     // const value = snapshot.val();
 
